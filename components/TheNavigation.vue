@@ -1,53 +1,61 @@
 <template>
-  <nav class="fixed top-0 w-full z-50 glass border-b border-white/10">
+  <nav class="fixed top-0 w-full z-50 glass border-b dark:border-white/20 light:border-black/20 backdrop-blur-2xl">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
-        <div class="text-white font-bold text-xl">
+        <div class="theme-text font-bold text-xl enhanced-contrast">
           Sinh Ern
         </div>
         
         <!-- Desktop Navigation -->
-        <div class="hidden md:flex space-x-8">
-          <a 
-            v-for="item in navigationItems" 
-            :key="item.href"
-            :href="item.href" 
-            class="text-white/80 hover:text-white transition-colors duration-300"
-            @click="closeMenu"
-          >
-            {{ item.label }}
-          </a>
+        <div class="hidden md:flex items-center space-x-8">
+          <div class="flex space-x-8">
+            <a 
+              v-for="item in navigationItems" 
+              :key="item.href"
+              :href="item.href" 
+              class="theme-text-muted hover:theme-text transition-colors duration-300"
+              @click="closeMenu"
+            >
+              {{ item.label }}
+            </a>
+          </div>
+          
+          <!-- Theme Toggle -->
+          <ThemeToggle />
         </div>
         
-        <!-- Mobile Menu Button -->
-        <button 
-          @click="toggleMobileMenu" 
-          class="md:hidden text-white focus:outline-none z-50"
-          aria-label="Toggle navigation menu"
-        >
-          <svg 
-            :class="{ 'rotate-45': isMobileMenuOpen }"
-            class="w-6 h-6 transition-transform duration-300" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
+        <!-- Mobile Menu Button & Theme Toggle -->
+        <div class="md:hidden flex items-center space-x-3">
+          <ThemeToggle />
+          <button 
+            @click="toggleMobileMenu" 
+            class="theme-text focus:outline-none z-50"
+            aria-label="Toggle navigation menu"
           >
-            <path 
-              v-if="!isMobileMenuOpen"
-              stroke-linecap="round" 
-              stroke-linejoin="round" 
-              stroke-width="2" 
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-            <path 
-              v-else
-              stroke-linecap="round" 
-              stroke-linejoin="round" 
-              stroke-width="2" 
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
+            <svg 
+              :class="{ 'rotate-45': isMobileMenuOpen }"
+              class="w-6 h-6 transition-transform duration-300" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path 
+                v-if="!isMobileMenuOpen"
+                stroke-linecap="round" 
+                stroke-linejoin="round" 
+                stroke-width="2" 
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+              <path 
+                v-else
+                stroke-linecap="round" 
+                stroke-linejoin="round" 
+                stroke-width="2" 
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
       
       <!-- Mobile Menu -->
@@ -66,7 +74,7 @@
               :key="item.href"
               :href="item.href" 
               @click="closeMobileMenu" 
-              class="text-white/80 hover:text-white transition-colors duration-300 py-2"
+              class="theme-text-muted hover:theme-text transition-colors duration-300 py-2"
             >
               {{ item.label }}
             </a>
@@ -79,6 +87,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import ThemeToggle from './ThemeToggle.vue'
 
 // Mobile menu state
 const isMobileMenuOpen = ref(false)

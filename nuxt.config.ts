@@ -1,11 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   modules: [
-    '@nuxtjs/tailwindcss',
-    '@vueuse/nuxt'
+    '@nuxtjs/tailwindcss'
   ],
   css: ['~/assets/css/main.css'],
+  ssr: true,
   app: {
     head: {
       title: 'Sinh Ern - Full-Stack Web Developer',

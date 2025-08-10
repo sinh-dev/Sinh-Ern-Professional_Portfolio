@@ -12,7 +12,8 @@ type HydrationStrategies = {
 }
 type LazyComponent<T> = (T & DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }>)
 interface _GlobalComponents {
-      'TheAbout': typeof import("../components/TheAbout.vue")['default']
+      'ParallaxContainer': typeof import("../components/ParallaxContainer.vue")['default']
+    'TheAbout': typeof import("../components/TheAbout.vue")['default']
     'TheContact': typeof import("../components/TheContact.vue")['default']
     'TheExperience': typeof import("../components/TheExperience.vue")['default']
     'TheFooter': typeof import("../components/TheFooter.vue")['default']
@@ -20,6 +21,7 @@ interface _GlobalComponents {
     'TheNavigation': typeof import("../components/TheNavigation.vue")['default']
     'TheProjects': typeof import("../components/TheProjects.vue")['default']
     'TheSkills': typeof import("../components/TheSkills.vue")['default']
+    'ThemeToggle': typeof import("../components/ThemeToggle.vue")['default']
     'NuxtWelcome': typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
     'NuxtLayout': typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
     'NuxtErrorBoundary': typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']
@@ -44,7 +46,8 @@ interface _GlobalComponents {
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'NuxtIsland': typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
     'NuxtRouteAnnouncer': typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
-      'LazyTheAbout': LazyComponent<typeof import("../components/TheAbout.vue")['default']>
+      'LazyParallaxContainer': LazyComponent<typeof import("../components/ParallaxContainer.vue")['default']>
+    'LazyTheAbout': LazyComponent<typeof import("../components/TheAbout.vue")['default']>
     'LazyTheContact': LazyComponent<typeof import("../components/TheContact.vue")['default']>
     'LazyTheExperience': LazyComponent<typeof import("../components/TheExperience.vue")['default']>
     'LazyTheFooter': LazyComponent<typeof import("../components/TheFooter.vue")['default']>
@@ -52,6 +55,7 @@ interface _GlobalComponents {
     'LazyTheNavigation': LazyComponent<typeof import("../components/TheNavigation.vue")['default']>
     'LazyTheProjects': LazyComponent<typeof import("../components/TheProjects.vue")['default']>
     'LazyTheSkills': LazyComponent<typeof import("../components/TheSkills.vue")['default']>
+    'LazyThemeToggle': LazyComponent<typeof import("../components/ThemeToggle.vue")['default']>
     'LazyNuxtWelcome': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
     'LazyNuxtLayout': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
     'LazyNuxtErrorBoundary': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']>
@@ -82,6 +86,7 @@ declare module 'vue' {
   export interface GlobalComponents extends _GlobalComponents { }
 }
 
+export const ParallaxContainer: typeof import("../components/ParallaxContainer.vue")['default']
 export const TheAbout: typeof import("../components/TheAbout.vue")['default']
 export const TheContact: typeof import("../components/TheContact.vue")['default']
 export const TheExperience: typeof import("../components/TheExperience.vue")['default']
@@ -90,6 +95,7 @@ export const TheHero: typeof import("../components/TheHero.vue")['default']
 export const TheNavigation: typeof import("../components/TheNavigation.vue")['default']
 export const TheProjects: typeof import("../components/TheProjects.vue")['default']
 export const TheSkills: typeof import("../components/TheSkills.vue")['default']
+export const ThemeToggle: typeof import("../components/ThemeToggle.vue")['default']
 export const NuxtWelcome: typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
 export const NuxtLayout: typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
 export const NuxtErrorBoundary: typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']
@@ -114,6 +120,7 @@ export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
 export const NuxtRouteAnnouncer: typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
+export const LazyParallaxContainer: LazyComponent<typeof import("../components/ParallaxContainer.vue")['default']>
 export const LazyTheAbout: LazyComponent<typeof import("../components/TheAbout.vue")['default']>
 export const LazyTheContact: LazyComponent<typeof import("../components/TheContact.vue")['default']>
 export const LazyTheExperience: LazyComponent<typeof import("../components/TheExperience.vue")['default']>
@@ -122,6 +129,7 @@ export const LazyTheHero: LazyComponent<typeof import("../components/TheHero.vue
 export const LazyTheNavigation: LazyComponent<typeof import("../components/TheNavigation.vue")['default']>
 export const LazyTheProjects: LazyComponent<typeof import("../components/TheProjects.vue")['default']>
 export const LazyTheSkills: LazyComponent<typeof import("../components/TheSkills.vue")['default']>
+export const LazyThemeToggle: LazyComponent<typeof import("../components/ThemeToggle.vue")['default']>
 export const LazyNuxtWelcome: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
 export const LazyNuxtLayout: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
 export const LazyNuxtErrorBoundary: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']>

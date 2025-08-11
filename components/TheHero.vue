@@ -36,14 +36,15 @@
             </div>
 
             <!-- Social Links -->
-            <div class="flex space-x-4 mb-8">
+            <div class="grid grid-cols-3 gap-4 mb-8 max-w-xs">
               <a 
                 v-for="social in socialLinks" 
                 :key="social.name"
                 :href="social.url" 
                 target="_blank"
-                class="w-12 h-12 glass-button rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300"
+                class="w-12 h-12 glass-button rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300 group"
                 :aria-label="social.name"
+                :title="social.name"
               >
                 <component :is="social.icon" class="w-5 h-5 theme-text" />
               </a>
@@ -77,12 +78,23 @@
             <div class="relative">
               <!-- Profile Image -->
               <div class="profile-image-container">
-                <img 
-                  :src="profileImage" 
-                  :alt="name"
-                  class="profile-image"
-                />
-                <div class="profile-image-overlay"></div>
+                <div v-if="profileImageExists" class="relative">
+                  <img 
+                    :src="profileImage" 
+                    :alt="name"
+                    class="profile-image"
+                    @error="handleImageError"
+                  />
+                  <div class="profile-image-overlay"></div>
+                </div>
+                <div v-else class="profile-placeholder">
+                  <div class="placeholder-content">
+                    <div class="placeholder-avatar">
+                      <span class="text-6xl font-bold theme-text">{{ name.charAt(0) }}</span>
+                    </div>
+                    <p class="text-sm theme-text-muted mt-4 text-center">Add your profile image to<br>/public/images/profile.jpg</p>
+                  </div>
+                </div>
               </div>
               
               <!-- Floating Badge -->
@@ -102,12 +114,22 @@
           <!-- Profile Image Mobile -->
           <div class="mb-8">
             <div class="profile-image-container-mobile">
-              <img 
-                :src="profileImage" 
-                :alt="name"
-                class="profile-image-mobile"
-              />
-              <div class="profile-image-overlay-mobile"></div>
+              <div v-if="profileImageExists" class="relative">
+                <img 
+                  :src="profileImage" 
+                  :alt="name"
+                  class="profile-image-mobile"
+                  @error="handleImageError"
+                />
+                <div class="profile-image-overlay-mobile"></div>
+              </div>
+              <div v-else class="profile-placeholder-mobile">
+                <div class="placeholder-content-mobile">
+                  <div class="placeholder-avatar-mobile">
+                    <span class="text-4xl font-bold theme-text">{{ name.charAt(0) }}</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -122,7 +144,7 @@
             </h2>
 
             <!-- Social Links Mobile -->
-            <div class="flex justify-center space-x-4 mb-6">
+            <div class="grid grid-cols-3 gap-3 mb-6 max-w-xs mx-auto">
               <a 
                 v-for="social in socialLinks" 
                 :key="social.name"
@@ -130,6 +152,7 @@
                 target="_blank"
                 class="w-10 h-10 glass-button rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300"
                 :aria-label="social.name"
+                :title="social.name"
               >
                 <component :is="social.icon" class="w-4 h-4 theme-text" />
               </a>
@@ -159,18 +182,60 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, h } from 'vue'
 
 // Hero content data
+const greeting = ref('Hi, I am')
 const name = ref('Sinh Ern')
 const title = ref('Full-Stack Web Developer')
-const tagline = ref('Crafting responsive, scalable, and user-focused web applications with modern frameworks and clean code.')
+const description = ref('Crafting responsive, scalable, and user-focused web applications with modern frameworks and clean code.')
+const profileImage = ref('/images/profile.jpg') // You'll need to add your profile image
+const profileImageExists = ref(true)
 
 const buttons = ref({
   viewWork: 'View My Work',
   downloadCV: 'Download CV',
   cvLink: '/cv.pdf'
 })
+
+// Social media links with proper icons and contact info
+const socialLinks = ref([
+  {
+    name: 'Email',
+    url: 'mailto:sinh.ern.pfdev@gmail.com',
+    icon: 'email'
+  },
+  {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/sinh-ern-8b22b0345',
+    icon: 'linkedin'
+  },
+  {
+    name: 'GitHub',
+    url: 'https://github.com/sinh-dev',
+    icon: 'github'
+  },
+  {
+    name: 'Facebook',
+    url: 'https://www.facebook.com/zaaddyy.xingg?mibextid=ZbWKwL',
+    icon: 'facebook'
+  },
+  {
+    name: 'Telegram',
+    url: 'https://t.me/sinhernrlistic',
+    icon: 'telegram'
+  },
+  {
+    name: 'Phone',
+    url: 'tel:+85587868299',
+    icon: 'phone'
+  }
+])
+
+// Handle image loading error
+const handleImageError = () => {
+  profileImageExists.value = false
+}
 
 // Optional: Add props for customization
 defineProps({
@@ -188,3 +253,179 @@ defineProps({
   }
 })
 </script>
+
+<style scoped>
+/* Profile Image Styles */
+.profile-image-container {
+  position: relative;
+  width: 500px;  /* Increased by 25% from 400px */
+  height: 625px; /* Increased by 25% from 500px */
+  max-width: 100%;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  filter: grayscale(20%);
+  transition: all 0.5s ease;
+}
+
+.profile-image:hover {
+  filter: grayscale(0%);
+  transform: scale(1.02);
+}
+
+.profile-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+/* Mobile Profile Image */
+.profile-image-container-mobile {
+  position: relative;
+  width: 250px;  /* Adjusted for single frame layout */
+  height: 300px; /* Taller aspect ratio for mobile portrait */
+  margin: 0 auto;
+}
+
+.profile-image-mobile {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  filter: grayscale(20%);
+  transition: all 0.5s ease;
+}
+
+.profile-image-overlay-mobile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  border-radius: 16px;
+  pointer-events: none;
+}
+
+/* Profile Image Placeholder */
+.profile-placeholder {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.placeholder-content {
+  text-align: center;
+}
+
+.placeholder-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.profile-placeholder-mobile {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.placeholder-content-mobile {
+  text-align: center;
+}
+
+.placeholder-avatar-mobile {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Floating Badge */
+.floating-badge {
+  position: absolute;
+  bottom: 20px;
+  right: 80px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1280px) {
+  .profile-image-container {
+    width: 437px; /* Increased by 25% from 350px */
+    height: 562px; /* Increased by 25% from 450px */
+  }
+}
+
+@media (max-width: 1024px) {
+  .profile-image-container {
+    width: 400px; /* Increased by 25% from 320px */
+    height: 500px; /* Increased by 25% from 400px */
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-image-container-mobile {
+    width: 225px; /* Increased by 25% from 180px */
+    height: 275px; /* Increased by 25% from 220px */
+  }
+}
+
+@media (max-width: 640px) {
+  .profile-image-container-mobile {
+    width: 200px; /* Increased by 25% from 160px */
+    height: 250px; /* Increased by 25% from 200px */
+  }
+}
+</style>

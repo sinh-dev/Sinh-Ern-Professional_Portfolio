@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen gradient-bg">
+  <SimpleVideoBackground>
     <!-- Navigation -->
     <TheNavigation />
     
@@ -10,13 +10,14 @@
     
     <!-- Footer -->
     <TheFooter />
-  </div>
+  </SimpleVideoBackground>
 </template>
 
 <script setup>
 // Import components
 import TheNavigation from '~/components/TheNavigation.vue'
 import TheFooter from '~/components/TheFooter.vue'
+import SimpleVideoBackground from '~/components/SimpleVideoBackground.vue'
 
 // SEO Head configuration
 useHead({

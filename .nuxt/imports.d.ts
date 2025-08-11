@@ -31,4 +31,5 @@ export { setInterval } from '#app/compat/interval';
 export { defineLazyHydrationComponent } from '#app/composables/lazy-hydration';
 export { useParallax } from '../composables/useParallax';
 export { useTheme } from '../composables/useTheme';
+export { useVideoBackground } from '../composables/useVideoBackground';
 export { definePageMeta } from '../node_modules/nuxt/dist/pages/runtime/composables';

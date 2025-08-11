@@ -13,6 +13,7 @@ type HydrationStrategies = {
 type LazyComponent<T> = (T & DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }>)
 interface _GlobalComponents {
       'ParallaxContainer': typeof import("../components/ParallaxContainer.vue")['default']
+    'SimpleVideoBackground': typeof import("../components/SimpleVideoBackground.vue")['default']
     'TheAbout': typeof import("../components/TheAbout.vue")['default']
     'TheContact': typeof import("../components/TheContact.vue")['default']
     'TheExperience': typeof import("../components/TheExperience.vue")['default']
@@ -22,6 +23,9 @@ interface _GlobalComponents {
     'TheProjects': typeof import("../components/TheProjects.vue")['default']
     'TheSkills': typeof import("../components/TheSkills.vue")['default']
     'ThemeToggle': typeof import("../components/ThemeToggle.vue")['default']
+    'VideoBackground': typeof import("../components/VideoBackground.vue")['default']
+    'VideoBackgroundToggle': typeof import("../components/VideoBackgroundToggle.vue")['default']
+    'VideoSettings': typeof import("../components/VideoSettings.vue")['default']
     'NuxtWelcome': typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
     'NuxtLayout': typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
     'NuxtErrorBoundary': typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']
@@ -47,6 +51,7 @@ interface _GlobalComponents {
     'NuxtIsland': typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
     'NuxtRouteAnnouncer': typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
       'LazyParallaxContainer': LazyComponent<typeof import("../components/ParallaxContainer.vue")['default']>
+    'LazySimpleVideoBackground': LazyComponent<typeof import("../components/SimpleVideoBackground.vue")['default']>
     'LazyTheAbout': LazyComponent<typeof import("../components/TheAbout.vue")['default']>
     'LazyTheContact': LazyComponent<typeof import("../components/TheContact.vue")['default']>
     'LazyTheExperience': LazyComponent<typeof import("../components/TheExperience.vue")['default']>
@@ -56,6 +61,9 @@ interface _GlobalComponents {
     'LazyTheProjects': LazyComponent<typeof import("../components/TheProjects.vue")['default']>
     'LazyTheSkills': LazyComponent<typeof import("../components/TheSkills.vue")['default']>
     'LazyThemeToggle': LazyComponent<typeof import("../components/ThemeToggle.vue")['default']>
+    'LazyVideoBackground': LazyComponent<typeof import("../components/VideoBackground.vue")['default']>
+    'LazyVideoBackgroundToggle': LazyComponent<typeof import("../components/VideoBackgroundToggle.vue")['default']>
+    'LazyVideoSettings': LazyComponent<typeof import("../components/VideoSettings.vue")['default']>
     'LazyNuxtWelcome': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
     'LazyNuxtLayout': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
     'LazyNuxtErrorBoundary': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']>
@@ -87,6 +95,7 @@ declare module 'vue' {
 }
 
 export const ParallaxContainer: typeof import("../components/ParallaxContainer.vue")['default']
+export const SimpleVideoBackground: typeof import("../components/SimpleVideoBackground.vue")['default']
 export const TheAbout: typeof import("../components/TheAbout.vue")['default']
 export const TheContact: typeof import("../components/TheContact.vue")['default']
 export const TheExperience: typeof import("../components/TheExperience.vue")['default']
@@ -96,6 +105,9 @@ export const TheNavigation: typeof import("../components/TheNavigation.vue")['de
 export const TheProjects: typeof import("../components/TheProjects.vue")['default']
 export const TheSkills: typeof import("../components/TheSkills.vue")['default']
 export const ThemeToggle: typeof import("../components/ThemeToggle.vue")['default']
+export const VideoBackground: typeof import("../components/VideoBackground.vue")['default']
+export const VideoBackgroundToggle: typeof import("../components/VideoBackgroundToggle.vue")['default']
+export const VideoSettings: typeof import("../components/VideoSettings.vue")['default']
 export const NuxtWelcome: typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
 export const NuxtLayout: typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
 export const NuxtErrorBoundary: typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']
@@ -121,6 +133,7 @@ export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
 export const NuxtRouteAnnouncer: typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']
 export const LazyParallaxContainer: LazyComponent<typeof import("../components/ParallaxContainer.vue")['default']>
+export const LazySimpleVideoBackground: LazyComponent<typeof import("../components/SimpleVideoBackground.vue")['default']>
 export const LazyTheAbout: LazyComponent<typeof import("../components/TheAbout.vue")['default']>
 export const LazyTheContact: LazyComponent<typeof import("../components/TheContact.vue")['default']>
 export const LazyTheExperience: LazyComponent<typeof import("../components/TheExperience.vue")['default']>
@@ -130,6 +143,9 @@ export const LazyTheNavigation: LazyComponent<typeof import("../components/TheNa
 export const LazyTheProjects: LazyComponent<typeof import("../components/TheProjects.vue")['default']>
 export const LazyTheSkills: LazyComponent<typeof import("../components/TheSkills.vue")['default']>
 export const LazyThemeToggle: LazyComponent<typeof import("../components/ThemeToggle.vue")['default']>
+export const LazyVideoBackground: LazyComponent<typeof import("../components/VideoBackground.vue")['default']>
+export const LazyVideoBackgroundToggle: LazyComponent<typeof import("../components/VideoBackgroundToggle.vue")['default']>
+export const LazyVideoSettings: LazyComponent<typeof import("../components/VideoSettings.vue")['default']>
 export const LazyNuxtWelcome: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
 export const LazyNuxtLayout: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
 export const LazyNuxtErrorBoundary: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']>

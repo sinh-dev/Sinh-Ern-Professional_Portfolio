@@ -20,12 +20,16 @@
             </a>
           </div>
           
+          <!-- Video Background Toggle -->
+          <VideoBackgroundToggle />
+          
           <!-- Theme Toggle -->
           <ThemeToggle />
         </div>
         
-        <!-- Mobile Menu Button & Theme Toggle -->
+        <!-- Mobile Menu Button & Toggles -->
         <div class="md:hidden flex items-center space-x-3">
+          <VideoBackgroundToggle />
           <ThemeToggle />
           <button 
             @click="toggleMobileMenu" 
@@ -88,6 +92,7 @@
 <script setup>
 import { ref } from 'vue'
 import ThemeToggle from './ThemeToggle.vue'
+import VideoBackgroundToggle from './VideoBackgroundToggle.vue'
 
 // Mobile menu state
 const isMobileMenuOpen = ref(false)

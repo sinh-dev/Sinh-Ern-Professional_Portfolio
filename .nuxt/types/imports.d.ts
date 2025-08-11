@@ -164,6 +164,7 @@ declare global {
   const useTemplateRef: typeof import('vue')['useTemplateRef']
   const useTheme: typeof import('../../composables/useTheme')['useTheme']
   const useTransitionState: typeof import('vue')['useTransitionState']
+  const useVideoBackground: typeof import('../../composables/useVideoBackground')['useVideoBackground']
   const watch: typeof import('vue')['watch']
   const watchEffect: typeof import('vue')['watchEffect']
   const watchPostEffect: typeof import('vue')['watchPostEffect']
@@ -348,6 +349,7 @@ declare module 'vue' {
     readonly useTemplateRef: UnwrapRef<typeof import('vue')['useTemplateRef']>
     readonly useTheme: UnwrapRef<typeof import('../../composables/useTheme')['useTheme']>
     readonly useTransitionState: UnwrapRef<typeof import('vue')['useTransitionState']>
+    readonly useVideoBackground: UnwrapRef<typeof import('../../composables/useVideoBackground')['useVideoBackground']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>
     readonly watchPostEffect: UnwrapRef<typeof import('vue')['watchPostEffect']>

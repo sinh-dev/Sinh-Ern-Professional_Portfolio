@@ -195,6 +195,54 @@
     @apply text-gray-700;
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
   }
+
+  /* Video Background Enhancements */
+  .video-enhanced-text {
+    text-shadow: 
+      0 2px 4px rgba(0, 0, 0, 0.8),
+      0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .dark .video-enhanced-text {
+    text-shadow: 
+      0 2px 8px rgba(0, 0, 0, 0.9),
+      0 0 20px rgba(0, 0, 0, 0.7);
+  }
+  
+  .light .video-enhanced-text {
+    text-shadow: 
+      0 2px 4px rgba(255, 255, 255, 0.9),
+      0 0 15px rgba(255, 255, 255, 0.6),
+      0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Video overlay blending modes */
+  .video-blend-overlay {
+    background: linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 0.3) 0%,
+      transparent 50%,
+      rgba(0, 0, 0, 0.2) 100%
+    );
+  }
+  
+  .dark .video-blend-overlay {
+    background: linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.2) 50%,
+      rgba(0, 0, 0, 0.4) 100%
+    );
+  }
+  
+  .light .video-blend-overlay {
+    background: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0.3) 100%
+    );
+  }
 }
 
 /* Custom scrollbar */
@@ -265,14 +313,17 @@
   }
 }
 
-/* Smooth scroll */
+/* Base styles */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
-/* Base styles */
 body {
   font-family: 'Inter', sans-serif;
   color: #ffffff;
   background-color: #000000;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }

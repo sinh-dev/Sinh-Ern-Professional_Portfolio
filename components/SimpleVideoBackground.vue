@@ -16,7 +16,7 @@
     </video>
 
     <!-- Theme Overlay -->
-    <div class="video-theme-overlay dark:bg-black/30 light:bg-white/20"></div>
+    <div class="video-theme-overlay dark:bg-black/15 light:bg-white/10"></div>
 
     <!-- Fallback Background -->
     <div v-if="showFallback" class="fallback-bg gradient-bg"></div>
@@ -71,6 +71,11 @@ const onVideoLoaded = () => {
   showFallback.value = false
   isTransitioning.value = false
   
+  // Set video playback speed to 0.5x for slower motion
+  if (videoElement.value) {
+    videoElement.value.playbackRate = 0.5
+  }
+  
   // Show video info briefly when changed
   showVideoInfo.value = true
   setTimeout(() => {
@@ -90,6 +95,8 @@ const handleVideoChange = (event) => {
     setTimeout(() => {
       videoElement.value.load()
       videoElement.value.style.opacity = '1'
+      // Ensure playback speed is set after loading
+      videoElement.value.playbackRate = 0.5
     }, 300)
   }
 }
@@ -118,13 +125,15 @@ onUnmounted(() => {
 .fixed-video-bg {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85vw;
   height: 100vh;
   object-fit: cover;
   z-index: -10;
   pointer-events: none;
   transition: opacity 0.5s ease;
+  border-radius: 0;
 }
 
 .video-transitioning {
@@ -134,12 +143,14 @@ onUnmounted(() => {
 .video-theme-overlay {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85vw;
   height: 100vh;
   z-index: -9;
   pointer-events: none;
   transition: background-color 0.3s ease;
+  border-radius: 0;
 }
 
 .fallback-bg {

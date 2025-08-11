@@ -13,10 +13,16 @@ const videoOptions = [
     name: 'Background 2',
     src: '/background/web_background2.mp4',
     description: 'Alternative background video'
+  },
+  {
+    id: 'video3',
+    name: 'Background 3',
+    src: '/background/web_background3.mp4',
+    description: 'Enhanced background video'
   }
 ]
 
-const currentVideoId = ref('video1') // Default to first video
+const currentVideoId = ref('video3') // Default to web_background3.mp4
 
 export function useVideoBackground() {
   // Initialize from localStorage

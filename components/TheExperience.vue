@@ -75,7 +75,7 @@ const education = ref({
 
 const experience = ref({
   title: 'Academic Projects & Development',
-  period: '2022 - Present',
+  period: '2024 - Present',
   achievements: [
     'Built and deployed multiple real-world academic projects applying full-stack development principles',
     'Collaborated in 5-member teams using Git for version control',

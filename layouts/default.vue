@@ -1,5 +1,5 @@
 <template>
-  <SimpleVideoBackground>
+  <div>
     <!-- Navigation -->
     <TheNavigation />
     
@@ -10,14 +10,13 @@
     
     <!-- Footer -->
     <TheFooter />
-  </SimpleVideoBackground>
+  </div>
 </template>
 
 <script setup>
 // Import components
 import TheNavigation from '~/components/TheNavigation.vue'
 import TheFooter from '~/components/TheFooter.vue'
-import SimpleVideoBackground from '~/components/SimpleVideoBackground.vue'
 
 // SEO Head configuration
 useHead({

@@ -200,7 +200,7 @@ onMounted(() => {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 120vw;
   height: 100vh;
   z-index: -2;
   object-fit: cover;

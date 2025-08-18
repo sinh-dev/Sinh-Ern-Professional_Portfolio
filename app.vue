@@ -1,8 +1,10 @@
 <template>
-  <div class="min-h-screen">
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
+  <div class="min-h-screen bg-cover bg-center bg-fixed bg-no-repeat" style="background-image: url('/images/background.jpg')">
+    <div class="min-h-screen bg-black/40 backdrop-blur-sm">
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </div>
   </div>
 </template>
 
